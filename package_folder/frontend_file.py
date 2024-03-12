@@ -4,7 +4,7 @@ st.title("Sign sense app")
 
 st.write("Upload your image")
 
-
+###### Needs to be adapted 
 # Creating four sliders
 value1 = st.slider('Select a value for Sepal length', min_value=0, max_value=4, value=1, step=1)
 value2 = st.slider('Select a value for Sepal width',  min_value=0, max_value=4, value=1, step=1)
