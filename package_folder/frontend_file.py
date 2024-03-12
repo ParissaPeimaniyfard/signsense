@@ -6,10 +6,14 @@ st.write("Upload your image")
 
 ###### Needs to be adapted 
 # Creating four sliders
-value1 = st.slider('Select a value for Sepal length', min_value=0, max_value=4, value=1, step=1)
-value2 = st.slider('Select a value for Sepal width',  min_value=0, max_value=4, value=1, step=1)
-value3 = st.slider('Select a value for Petal length',  min_value=0, max_value=4, value=1, step=1)
-value4 = st.slider('Select a value for Petal width',  min_value=0, max_value=4, value=1, step=1)
+
+# File uploader widget
+uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
+
+# Display the uploaded image
+if uploaded_file is not None:
+    image = Image.open(uploaded_file)
+    st.image(image, caption='Uploaded Image.', use_column_width=True)
 
 # TEST LINE
 response=requests.get(f"https://mvp-viakkexzvq-ew.a.run.app/predict?x1={value1}&x2={value2}&x3={value3}&x4={value4}").json()

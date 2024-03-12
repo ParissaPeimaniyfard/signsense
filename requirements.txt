@@ -8,6 +8,7 @@ tqdm
 # API
 fastapi
 uvicorn
+python-multipart
 
 # Machine Learning
 ### To be changed later
