@@ -1,4 +1,4 @@
-FROM tensorflow/tensorflow:2.10.0
+FROM python:3.8.12-slim
 
 COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt

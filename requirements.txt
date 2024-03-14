@@ -12,18 +12,15 @@ python-multipart
 
 # Machine Learning
 ### To be changed later
-scikit-learn==1.3.1
+tensorflow
 
 # Deep Learning
 # Trick to install the version of Tensorflow depending on your processor: darwin == Mac, ARM == M1
 #tensorflow-macos==2.10.0; sys_platform == 'darwin' and 'ARM' in platform_version # Mac M-chips
-<<<<<<< HEAD
-#tensorflow==2.10.0; sys_platform == 'darwin' and 'ARM' not in platform_version # Mac Intel chips
+#tensorflow==2.15.0; sys_platform == 'darwin' and 'ARM' not in platform_version # Mac Intel chips
 #tensorflow==2.10.0; sys_platform != 'darwin' # Windows & Ubuntu Intel chips
-=======
 # tensorflow==2.10.0; sys_platform == 'darwin' and 'ARM' not in platform_version # Mac Intel chips
-tensorflow==2.15.0; sys_platform != 'darwin' # Windows & Ubuntu Intel chips
->>>>>>> master
+
 
 # Data visualization
 matplotlib

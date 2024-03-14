@@ -38,3 +38,8 @@ deploy_to_cloud_run:
 # Browse frontend locally
 browse_frontend_local:
 	streamlit run frontend_file.py --server.port 8501
+
+
+# Run API local
+run_api_local:
+	uvicorn package_folder.api_file:app --reload
