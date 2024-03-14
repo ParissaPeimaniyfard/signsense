@@ -99,10 +99,10 @@ def good_model():
   model.add(BatchNormalization())
 
   # prediction layer
-  model.add(layers.Dense(27, activation="sigmoid"))
+  model.add(layers.Dense(27, activation="softmax"))
 
   # compiling model
-  adam = optimizers.Adam(learning_rate = 0.001)
+  adam = optimizers.Adam(learning_rate = 0.01)
   model.compile(loss='categorical_crossentropy',
                 optimizer= adam,
                 metrics=['accuracy'])
@@ -116,13 +116,13 @@ if __name__ == '__main__':
     model_good = good_model()
     X_train, y_train, X_val, y_val, X_test, y_test, num_classes = load_asl_data(max_imgs)
     modelCheckpooint = callbacks.ModelCheckpoint("good_model.h5", monitor="val_loss", verbose=0, save_best_only=True)
-    LRreducer = callbacks.ReduceLROnPlateau(monitor="val_loss", factor = 0.1, patience=3, verbose=1, min_lr=0)
+    # LRreducer = callbacks.ReduceLROnPlateau(monitor="val_loss", factor = 0.1, patience=3, verbose=1, min_lr=0)
     EarlyStopper = callbacks.EarlyStopping(monitor='val_loss', patience=10, verbose=0, restore_best_weights=True)
     history = model_good.fit(
         X_train, y_train,
         epochs=20,
         validation_data= (X_val, y_val),
-        callbacks = [modelCheckpooint, LRreducer, EarlyStopper]
+        callbacks = [modelCheckpooint, EarlyStopper]
     )
     tmp_path = '/tmp/model-params.h5'
     model_good.save(tmp_path)
