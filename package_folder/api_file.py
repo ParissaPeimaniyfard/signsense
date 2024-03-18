@@ -1,6 +1,7 @@
 from fastapi import FastAPI, UploadFile
 from tensorflow.keras import models
 import numpy as np
+import requests
 from PIL import Image
 from google.cloud import storage
 from package_folder.train_model import ALPHABET
@@ -20,9 +21,10 @@ def root():
 
 ## Predict Endpoint where model is located
 # ("/predict") specifies the URL specificity
-@app.get("/predict")
-def predict(image_file):
-    image = Image.open(image_file)
+@app.route('/predict', methods=['POST'])
+def predict():
+    file = requests.files['image_file']
+    image = Image.open(file.stream)
     image = image.resize((50, 50))
     img = np.array(image)
     img = img.reshape((-1, 50, 50, 3))
