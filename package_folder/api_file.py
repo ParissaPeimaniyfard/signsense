@@ -14,6 +14,7 @@ model_good = models.load_model('/tmp/model-params.h5')
 
 app = FastAPI()
 
+
 ## Root Endpoint (Landing Page)
 @app.get("/")
 def root():
