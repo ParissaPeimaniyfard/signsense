@@ -11,6 +11,11 @@ then
   exec uvicorn package_folder.api_file:app --host 0.0.0.0 --port $PORT
 fi
 
+if [[ $1 = 'launch_frontend' ]]
+then
+  exec streamlit run package_folder/frontend_file.py --server.port $PORT
+fi
+
 if [[ $1 = 'test' ]]
 then
    exec echo 'hello world'
