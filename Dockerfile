@@ -6,6 +6,8 @@ RUN pip install -r requirements.txt
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 COPY package_folder package_folder
 
+RUN apt-get update && apt-get install ffmpeg libsm6 libxext6  -y && rm -rf /var/lib/apt/lists/*
+
 # RUN CONTAINER LOCALLY
 #CMD uvicorn package_folder.api_file:app --host 0.0.0.0
 

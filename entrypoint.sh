@@ -16,6 +16,12 @@ then
   exec streamlit run package_folder/frontend_file.py --server.port $PORT
 fi
 
+if [[ $1 = 'launch_frontend_video' ]]
+then
+  exec streamlit run package_folder/frontend_file_video.py --server.port $PORT
+fi
+
+
 if [[ $1 = 'test' ]]
 then
    exec echo 'hello world'

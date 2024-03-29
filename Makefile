@@ -26,6 +26,7 @@ create_artifacts_repo:
 build_for_production:
 	docker build -t  $$GCP_REGION-docker.pkg.dev/$$GCP_PROJECT/$$ARTIFACTSREPO/$$IMAGE:prod .
 
+
 ## Step 4
 push_image_production:
 	docker push $$GCP_REGION-docker.pkg.dev/$$GCP_PROJECT/$$ARTIFACTSREPO/$$IMAGE:prod

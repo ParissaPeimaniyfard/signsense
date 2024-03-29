@@ -46,3 +46,5 @@ python-dotenv
 streamlit
 requests
 pillow
+
+opencv-python

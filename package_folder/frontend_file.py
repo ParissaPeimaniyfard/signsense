@@ -5,7 +5,7 @@ from PIL import Image
 # Function to make API request
 def predict_letter(uploaded_file):
     # Send request to FASTapi API
-    response = requests.post('https://signsense-api-viakkexzvq-ew.a.run.app/predict', files={'image_file': uploaded_file})
+    response = requests.post('https://signsenseapi2-viakkexzvq-ew.a.run.app/predict', files={'image_file': uploaded_file})
     predicted_letter = response.json()['prediction']
     return predicted_letter
 
