@@ -43,13 +43,10 @@ st.title('Sign Language Word Prediction')
 # File uploader for video
 uploaded_video = st.file_uploader("Upload a video", type=["mp4"])
 
-# video_file = open(uploaded_video)
-# video_bytes = video_file.read()
+
 
 if uploaded_video is not None:
-    # Display uploaded video
 
-    # st.video(video_bytes)
 
     st.video(uploaded_video, format='video/mp4')
 

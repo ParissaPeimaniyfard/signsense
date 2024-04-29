@@ -14,16 +14,16 @@ import tempfile
 
 
 
-# client = storage.Client()
-# bucket = client.bucket('raw-data-signsense')
-# blob = bucket.get_blob('model-params.h5')
-# blob.download_to_filename('/tmp/model-params.h5')
-# model_good = models.load_model('/tmp/model-params.h5')
+client = storage.Client()
+bucket = client.bucket('raw-data-signsense')
+blob = bucket.get_blob('model-params.h5')
+blob.download_to_filename('/tmp/model-params.h5')
+model_good = models.load_model('/tmp/model-params.h5')
 
 app = FastAPI()
 
 # Load the image classification model
-model = tf.keras.models.load_model('models/dummy_model_size100_tensflow_version10.h5')
+# model = tf.keras.models.load_model('models/dummy_model_size100_tensflow_version10.h5')
 
 ## Root Endpoint (Landing Page)
 @app.get("/")
@@ -38,7 +38,7 @@ def predict(image_file: UploadFile):
     image = image.resize((100, 100))
     img = np.array(image)
     img = img.reshape((-1, 100, 100, 3))
-    prediction = model.predict(img)
+    prediction = model_good.predict(img)
     predicted_idx = np.argmax(prediction)
     predicted_letter = [letter for letter, indic in ALPHABET.items() if indic == predicted_idx]
     # print(f'probability: {prediction[0][predicted_idx]*100}')
@@ -73,7 +73,7 @@ async def predict_video(video_file: UploadFile = File(...)):
         # Convert the frame to PIL Image format
         frame_pil = Image.fromarray(cv2.cvtColor(frame, cv2.COLOR_BGR2RGB))
 
-        # Resize the image to match your model input shape (assuming 50x50)
+        # Resize the image to match your model input shape
         frame_pil = frame_pil.resize((100, 100))
 
         # Convert the PIL Image to numpy array
@@ -82,8 +82,8 @@ async def predict_video(video_file: UploadFile = File(...)):
         # Reshape the numpy array to match the model input shape
         frame_np = frame_np.reshape((-1, 100, 100, 3))
 
-        # Perform prediction using your model
-        prediction = model.predict(frame_np)
+        # Perform prediction using model
+        prediction = model_good.predict(frame_np)
 
         # Get the predicted index
         predicted_idx = np.argmax(prediction)
