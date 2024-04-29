@@ -10,7 +10,7 @@ The training data set contains 87,000 images which are 200x200 pixels. There are
 
 Each training and test case represents a label (0-27) as a one-to-one map for each alphabetic letter A-Z (and no cases for 9=J or 25=Z because of gesture motions).
 
-For some modeles 3 classes for SPACE, DELETE and NOTHING to check if the model can work better.
+For some modeles 3 classes for SPACE, DELETE and NOTHING were removed to check if the model can work better.
 
 ### Features
 Classification of ASL letters from images.
@@ -24,10 +24,10 @@ Landmark detection using MediaPipe models to detect hand gestures.
 Data Preparation: Prepare a dataset of ASL images and videos for training. Ensure that the dataset includes a diverse range of ASL gestures and is labeled accordingly.
 
 #### Model Training:
-Train the machine learning model using the provided scripts or notebooks. Experiment with different CNN architectures, transfer learning techniques, and data augmentation methods to optimize performance.
+Train the models using the provided scripts or notebooks. Experiment with different CNN architectures, transfer learning techniques, and data augmentation methods to optimize performance.
 
 #### Modeling Environment
-The machine learning models for this project were developed using Google Colab, a cloud-based Jupyter notebook environment provided by Google. Google Colab was chosen for its access to GPU/TPU resources and generous RAM allocation, which proved invaluable for training deep neural networks and handling large datasets.
+The models for this project were developed using Google Colab, a cloud-based Jupyter notebook environment provided by Google. Google Colab was chosen for its access to GPU/TPU resources and generous RAM allocation, which proved invaluable for training deep neural networks and handling large datasets.
 
 ### Running the API
 _Installation:_ Install the necessary dependencies by running *"pip install -r requirements.txt"*.
